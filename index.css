@@ -7,10 +7,15 @@
 *::after,*::before{
     box-sizing: border-box;
 }
+html{
+    height: 100%;
+}
 body{
+    height: 100%;
     font: 14px/1.5 Helvetica,sans-serif;
     color: #333;
     outline: 0;
+    
 }
 svg{
     vertical-align: top;
@@ -26,7 +31,17 @@ h1,h2,h3,h4,h5,h6{
     font-weight: normal;
     
 }
-
+input{
+    font: 14px/1.5 Helvetica,sans-serif;
+    color: #333;
+    outline: none;
+    border: none;
+}
+/* css reset end */
+.page{
+    background: rgb(252,252,253);
+    min-height: 100%;
+}
 /* head  */
 .head{
     position: fixed;
@@ -159,7 +174,6 @@ h1,h2,h3,h4,h5,h6{
 }
 .music{
     padding-top: 20px;
-    background: rgb(252,252,253);
 }
 .music > .recommend-title{
     position: relative;
@@ -311,7 +325,6 @@ footer > .footer-wrap > .copyright{
 /* hot list content */
 
 .hot-list{
-    background: rgb(252,252,253);
 }
 .hot-list > .hot-top{
     position: relative;
@@ -395,4 +408,72 @@ footer > .footer-wrap > .copyright{
     line-height: 55px;
     text-align: center;
     color: #999;
+}
+
+/* search content */
+.search{
+    padding: 15px 10px;
+    position: relative;
+    
+}
+.search::after{
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.search > .search-box{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    padding: 0 30px;
+    box-sizing: border-box;
+    background: #ebecec;
+    border-radius: 30px;
+}
+.search > .search-box > input{
+    width: 100%;
+    height: 30px;
+    line-height: 18px;
+    background: transparent;
+    font-size: 14px;
+    color: #333;
+}
+.search > .search-box > label{
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    color: #c9c9c9;
+}
+.icon-search{
+    position: absolute;
+    top: 9px;
+    left: 8px;
+    display: block;
+    width: 13px;
+    height: 13px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNiAyNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjYzljOWNhIiBkPSJNMjUuMTgxLDIzLjUzNWwtMS40MTQsMS40MTRsLTcuMzE1LTcuMzE0CgkJQzE0LjcwOSwxOS4xMDcsMTIuNDYsMjAsMTAsMjBDNC40NzcsMjAsMCwxNS41MjMsMCwxMEMwLDQuNDc3LDQuNDc3LDAsMTAsMGM1LjUyMywwLDEwLDQuNDc3LDEwLDEwYzAsMi4zNDItMC44MTEsNC40OS0yLjE2LDYuMTk1CgkJTDI1LjE4MSwyMy41MzV6IE0xMCwyYy00LjQxOCwwLTgsMy41ODItOCw4czMuNTgyLDgsOCw4YzQuNDE4LDAsOC0zLjU4Miw4LThTMTQuNDE4LDIsMTAsMnoiLz48L3N2Zz4=)
+}
+.search-list{
+    padding: 15px 10px 0 10px;
+}
+.search-list > h3{
+    font-size: 12px;
+    line-height: 12px;
+    color: #666;
+}
+.search-list > ul{
+    margin: 10px 0;
+}
+.search-list .search-item{
+    position: relative;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 14px;
+    color: #333;
+    font-size: 14px;
+    margin: 0 8px 8px 0;
+    border-radius: 32px;
+}
+.search-list .search-item::after{
+    border: 1px solid #d3d4da;
+    border-radius: 60px;
 }
