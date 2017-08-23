@@ -155,10 +155,10 @@ h1,h2,h3,h4,h5,h6{
 
 /* tab-content */
 .tab-content{
-
+    padding-top: 20px;
 }
 .music{
-    padding-top: 20px;
+    
     background: rgb(252,252,253);
 }
 .music > .recommend-title{
