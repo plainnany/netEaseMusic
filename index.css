@@ -155,10 +155,10 @@ h1,h2,h3,h4,h5,h6{
 
 /* tab-content */
 .tab-content{
-    padding-top: 20px;
+    
 }
 .music{
-    
+    padding-top: 20px;
     background: rgb(252,252,253);
 }
 .music > .recommend-title{
@@ -265,9 +265,7 @@ h1,h2,h3,h4,h5,h6{
     background-position: -24px 0;
 }
 
-
-
-/* footer */
+/* music footer */
 footer{
     position: relative;
     padding-top: 53.3%;
@@ -277,7 +275,7 @@ footer{
     background-size: contain;
     text-align: center;
 }
-footer > .footer-wrap{
+.footer-wrap,.hot-wrap{
     position: absolute;
     top: 0;
     left: 0;
@@ -308,4 +306,93 @@ footer > .footer-wrap > .copyright{
     line-height: 16px;
     transform: scale(.75);
     -webkit-transform: scale(.75);
+}
+
+/* hot list content */
+
+.hot-list{
+    background: rgb(252,252,253);
+}
+.hot-list > .hot-top{
+    position: relative;
+    padding-top: 38.9%;
+    background-image: url(//s3.music.126.net/m/s/img/hot_music_bg_2x.jpg?f01a252389c26bcf016816242eaa6aee);
+    background-size: contain;
+}
+.hot-list > .hot-top > .hot-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    background: rgba(0,0,0,.2);
+}
+
+.hot-list > .hot-top .hot-icon{
+    width: 142px;
+    height: 67px;
+    background: url(//s3.music.126.net/m/s/img/index_icon_2x.png?5207a28…) no-repeat;
+    background-position: -24px -30px;
+    background-size: 166px 97px;
+}
+.hot-list > .hot-top .update{
+    margin-top: 10px;
+    font-size: 12px;
+    color: hsla(0,0%,100%,.8);
+    transform: scale(.91);
+    transform-origin: top left;
+}
+.hot-list > .hot-content > .hot-item{
+    display: flex;
+    padding-left: 10px;
+}
+.hot-list > .hot-content .hot-item-num{
+    display: flex;
+    width: 28px;
+    font-size: 17px;
+    align-items: center;
+    color: #999;
+}
+.hot-list > .hot-content .top-three{
+    color: #df3436;
+}
+.hot-list > .hot-content .hot-item-content{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    padding: 6px 0;
+}
+.hot-list > .hot-content .hot-item-content::after{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.hot-list > .hot-content h3{
+    font-size: 17px;
+
+}
+.hot-list > .hot-content span{
+    color: #888;
+    margin-left: 4px;
+}
+.hot-list > .hot-content p{
+    font-size: 12px;
+    color: #888;
+}
+.textoverflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: normal;
+}
+
+.hot-list > .hot-content .hot-item-play{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+.hot-list > .hot-view{
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    color: #999;
 }

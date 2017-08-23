@@ -1,4 +1,8 @@
 $(function(){
+    
+    $('.tab-content').hide()
+    $('.tab-content').eq(0).show()
+    
     $('.topbar-tab>li').on('click',function(){
         var index = $(this).index()
         $(this).addClass('active')
