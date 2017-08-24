@@ -28,7 +28,6 @@
 .song img{
     width: 100%;
     vertical-align: top;
-    animation: circling 20s infinite linear;
 }
 .song-wrap{
     height: 100%;
