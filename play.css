@@ -60,15 +60,30 @@
 }
 .song-wrap > .song-disc{
     position: relative;
-    padding-top: 80px;
-    
-
+    padding-top: 63px;
+}
+@media screen and (min-width: 360px){
+    .song-wrap > .song-disc{
+        padding-top: 70px;
+    }
+}
+@media screen and (min-width: 414px){
+    .song-wrap > .song-disc{
+        padding-top: 80px;
+    }
 }
 .song-wrap > .song-disc::after{
+    width: 84px;
+    height: 122px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-20%);
     content: " ";
     position: absolute;
+    background-image: url(//s3.music.126.net/m/s/img/needle.png?702cf6d95f29e2e594f53a3caab50e12);
     background-size: contain;
     background-repeat: no-repeat;
+
 }
 
 @media screen and (min-width: 360px){
@@ -77,7 +92,8 @@
         width: 96px;
         height: 137px;
         top: 0;
-        left: 164px;
+        left: 50%;
+        transform: translateX(-15.6%);
         background-image: url(http://s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862);
     }
 }
@@ -87,7 +103,8 @@
         width: 110px;
         height: 157px;
         top: 0;
-        left: 186px;
+        left: 50%;
+        transform: translateX(-19%);
         background-image: url(http://s3.music.126.net/m/s/img/needle-plus.png?994aa910ce3e4d242eb7076620b0e502);
     }
 }
@@ -105,6 +122,7 @@
     animation: circling 20s infinite linear;
 }
 .song-wrap .song-turn::after{
+    
     content: " ";
     position: absolute;
     left: 0;
@@ -131,9 +149,87 @@
     }
 }
 .song-wrap .song-img{
-    width: 212px;
+    width: 150px;
+}
+@media screen and (min-width: 360px){
+    .song-wrap .song-img{
+        width: 184px;
+    }
+
+}
+@media screen and (min-width: 414px){
+    .song-wrap .song-img{
+        width: 212px;
+    }
+
 }
 .song-wrap .song-img img{
     border-radius: 50%;
 }
 
+.song-wrap > .song-info{
+    margin-top: 25px;
+    padding: 0 35px;
+    height: 121px;
+}
+
+.song-wrap > .song-footer{
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    width: 100%;
+    z-index: 15;
+}
+.song-wrap > .song-footer > .song-footer-wrap{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 35px;
+    margin: 0 auto;
+    text-align: center;
+}
+@media screen and (min-width: 360px){
+    .song-wrap > .song-footer > .song-footer-wrap{
+        max-width: 362px;
+    }
+}
+@media screen and (min-width: 414px){
+    .song-wrap > .song-footer > .song-footer-wrap{
+        max-width: 390px;
+    }
+}
+.song-wrap > .song-footer a{
+    width: 100%;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    font-size: 15px;
+    border: 1px solid #d43b32;
+    border-radius: 4px;
+    flex: 1;
+    
+}
+@media screen and (min-width: 360px){
+    .song-wrap > .song-footer a{
+        height: 42px;
+        line-height: 42px;
+        font-size: 18px;
+    }
+}
+@media screen and (min-width: 414px){
+    .song-wrap > .song-footer a{
+        height: 47px;
+        line-height: 47px;
+        font-size: 20px;
+    }
+}
+.song-wrap > .song-footer .open{
+    margin-right: 12px;
+    color: #d43b32;
+    background-color: transparent;
+    
+}
+.song-wrap > .song-footer .download{
+    color: #fff;
+    background-color: #d43b32;
+}
