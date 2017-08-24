@@ -1,36 +1,4 @@
-/* css reset */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-*::after,*::before{
-    box-sizing: border-box;
-}
-html{
-    height: 100%;
-}
-body{
-    height: 100%;
-    font: 14px/1.5 Helvetica,sans-serif;
-    color: #333;
-    outline: 0;
-    
-}
-svg{
-    vertical-align: top;
-}
-li{
-    list-style: none;
-}
-a{
-    text-decoration: none;
-    color: inherit;
-}
-h1,h2,h3,h4,h5,h6{
-    font-weight: normal;
-    
-}
+
 input{
     font: 14px/1.5 Helvetica,sans-serif;
     color: #333;
