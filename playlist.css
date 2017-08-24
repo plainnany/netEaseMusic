@@ -1,0 +1,116 @@
+body{
+
+}
+.playlist{
+    min-height: 100%;
+    background: rgb(248,248,248);
+
+}
+.playlist-header{
+    position: relative;
+    padding: 30px 10px 30px 15px;
+    overflow: hidden;
+
+}
+.playlist img{
+    width: 100%;
+    vertical-align: top;
+}
+.textoverflow2{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.playlist-bg,.playlist-bg::after{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.playlist-bg{
+    background-image: url("//music.163.com/api/img/blur/109951163004878113?param=170y170");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+.playlist-bg::after{
+    content: " ";
+    background: rgba(0, 0, 0, .25);
+
+}
+.playlist-header-wrap{
+    position: relative;
+    display: flex;
+
+}
+.playlist-header-wrap > .playlist-header-img{
+    position: relative;
+    width: 114px;
+    height: 114px;
+}
+.playlist-header-img::after{
+    content: " ";
+    display: block;
+    position: absolute;
+}
+.playlist-header-img .earphone{
+    position: absolute;
+    right: 2px;
+    top: 0;
+    z-index: 3;
+    padding-left: 15px;
+    color: #fff;
+    font-size: 12px;
+}
+.icon-song{
+    position: absolute;
+    z-index: 3;
+    top: 10px;
+    left: 0;
+    padding: 0 8px;
+    height: 17px;
+    line-height: 17px;
+    color: #fff;
+    font-size: 9px;
+    text-align: center;
+    background-color: rgba(217,48,48,.8);
+    border-top-right-radius: 17px;
+    border-bottom-right-radius: 17px;
+}
+.playlist-header-wrap > .playlist-header-content{
+    position: relative;
+    margin-left: 16px;
+    flex-basis: 0;
+    flex-grow: 1;
+
+}
+
+.playlist-header-wrap > .playlist-header-content h2{
+    height: 45px;
+    padding-top: 1px;
+    font-size: 17px;
+    line-height: 1.3;
+    color: #fefefe;
+}
+.user{
+    display: block;
+    position: relative;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-top: 20px;
+    color: hsla(0,0%,100%,.7);
+}
+.playlist-header-wrap > .playlist-header-content img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
