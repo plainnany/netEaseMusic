@@ -12,6 +12,15 @@ $(function(){
         
     })
 
-
     
+    $('#search').on('focus',function(){
+        $('#placeholder').text('')
+        
+    })
+    $('#search').on('blur',function(){
+        if($(this).val() === ''){
+            $('#placeholder').text('搜索歌曲、歌手、专辑')
+        }
+    })
+
 })

@@ -15,7 +15,7 @@ var songs = new songObject()
 // }).then(function(object) {
 //   alert('保存成功')
 // })
-var query = new AV.Query('Song');
+var query = new AV.Query('Song')
 query.find().then(function (results) {
   // 如果这样写，第二个条件将覆盖第一个条件，查询只会返回 priority = 1 的结果
     console.log(results)
@@ -28,4 +28,37 @@ query.find().then(function (results) {
     }
     $('.lastest-list').append(html)
 }, function (error) {
+    alert('获取歌曲失败')
 })
+
+$('#search').on('input',function(){
+    
+    var value = $(this).val().trim()
+    if(value === ''){return}
+    var query = new AV.Query('Song')
+    query.contains('name',value)
+    query.find().then(function (results) {
+        $('.search-list ul').empty()
+        if(results.length === 0){
+            console.log('没有结果')
+        }else{
+            
+            var html = ''
+            for(var i=0;i<results.length;i++){
+                html += '<li>'+ results[i].attributes.name + '-' + results[i].attributes.singer
+                 +'</li>'
+            }
+            $('.search-list ul').append(html)
+        }
+        console.log(results)
+        var html = ''
+        
+    }, function (error) {
+        
+    })
+
+
+
+    
+})
+console.log()

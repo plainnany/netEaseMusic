@@ -332,6 +332,10 @@ footer > .footer-wrap > .copyright{
     flex: 1;
     padding: 6px 0;
 }
+.hot-list > .hot-content .hot-item-context{
+    flex: 1 1 auto;
+    width: 0;
+}
 .hot-list > .hot-content .hot-item-content::after{
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
