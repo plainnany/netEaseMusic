@@ -75,3 +75,6 @@ i,em{
         transform: scale(.333333);
     }
 }
+.loading{
+    text-align: center;
+}

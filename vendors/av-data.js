@@ -10,7 +10,7 @@ $(function(){
     !function(){
         var query = new AV.Query('Indexlist')
         query.find().then(function (results) {
-        // 如果这样写，第二个条件将覆盖第一个条件，查询只会返回 priority = 1 的结果
+            $('#loading').remove()
             var html = ''
             for(var i=0;i<results.length;i++){
                 html += '<a href='+ results[i].attributes.url +' class="music-list border"><div class="music-list-cont">\
@@ -28,7 +28,7 @@ $(function(){
     !function(){
         var query = new AV.Query('Hotlist')
         query.find().then(function (results) {
-        // 如果这样写，第二个条件将覆盖第一个条件，查询只会返回 priority = 1 的结果
+            $('#loading').remove()
             var html = ''
             var num = 0
             for(var i=0;i<3;i++){
