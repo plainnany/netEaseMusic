@@ -187,9 +187,13 @@ input{
     
 }
 .recommend-list > .lastest-list >.music-list{
-    display: block;
+    display: flex;
     padding: 6px 0 6px 10px;
     position: relative;
+}
+.recommend-list > .lastest-list .music-list-cont{
+    flex: 1 1 auto;
+    width: 0;
 }
 .recommend-list > .lastest-list >.music-list::after{
     border-bottom: 1px solid rgba(0,0,0,.1);
@@ -211,11 +215,11 @@ input{
     color: #888;
 }
 .recommend-list > .lastest-list span{
-    position: absolute;
-    display: block;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    
 }
 
 .icon-sq,.icon-play{
