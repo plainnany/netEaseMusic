@@ -50,16 +50,16 @@ $(function(){
                 num = i >= 9 ? (i+1) : ('0' + (i + 1) )
 
                 html += '<a href='+ results[i].attributes.url +' class="hot-item">\
-                <div class="hot-item-num">'+ num +'</div>\
-                <div class="hot-item-content border">\
-                    <div class="hot-item-context">\
-                        <h3>'+ results[i].attributes.name +'<span>'+ results[i].attributes.nameinfo +'</span></h3>\
-                        <p class="textoverflow"><svg class="icon icon-sq"><use xlink:href="#icon-sq"></use></svg>'+
-                        results[i].attributes.singer + ' - ' + results[i].attributes.name +'</p>\
-                    </div>\
-                    <div class="hot-item-play">\
-                        <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>\
-                    </div></div></a>'    
+                            <div class="hot-item-num">'+ num +'</div>\
+                                <div class="hot-item-content border">\
+                                    <div class="hot-item-context">\
+                                        <h3>'+ results[i].attributes.name +'<span>'+ results[i].attributes.nameinfo +'</span></h3>\
+                                        <p class="textoverflow"><svg class="icon icon-sq"><use xlink:href="#icon-sq"></use></svg>'+
+                                        results[i].attributes.singer + ' - ' + results[i].attributes.name +'</p>\
+                                    </div>\
+                                    <div class="hot-item-play">\
+                                        <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>\
+                                    </div></div></a>'    
             }
             $('.hot-content').append(html)
         }, function (error) {
@@ -75,11 +75,11 @@ $(function(){
             var html = ''
             for(var i=0;i<results.length;i++){
                 html += '<a href='+ results[i].attributes.url +'>\
-                <div class="recommend-img">\
-                    <img src='+ results[i].attributes.imgUrl +' alt="">\
-                    <span class="earphone">'+ results[i].attributes.playnum +'万</span>\
-                </div>\
-                <p>'+ results[i].attributes.info +'</p></a>'
+                            <div class="recommend-img">\
+                                <img src='+ results[i].attributes.imgUrl +' alt="">\
+                                <span class="earphone">'+ results[i].attributes.playnum +'万</span>\
+                            </div>\
+                            <p>'+ results[i].attributes.info +'</p></a>'
             }
             
             $('.recommend-songs').append(html)
@@ -96,29 +96,42 @@ $(function(){
             if($(this).val() === ''){
                 
                 $('.search-box').removeClass('active')
+
+                $('.search-results').empty()
+                $('.search-list').show()
             } 
         
         
             
             if(value === ''){return}
-            var query = new AV.Query('Playlist')
+            var query = new AV.Query('Hotlist')
             query.contains('name',value)
             query.find().then(function (results) {
-                $('.search-list ul').empty()
-                if(results.length === 0){
-                    console.log('没有结果')
-                }else{
-                    
-                    var html = ''
-                    for(var i=0;i<results.length;i++){
-                        html += '<li>'+ results[i].attributes.name + '-' + results[i].attributes.singer
-                         +'</li>'
-                    }
-                    $('.search-list ul').append(html)
-                }
-                console.log(results)
-                var html = ''
+                $('.search-list').hide()
                 
+                if(results.length === 0){
+                    $('.search-results').empty()
+                    var html = ''
+                    html = '<h3 class="border">搜索"'+ value +'"</h3>'
+                    $('.search-results').append(html)
+                }else{
+                    $('.search-results').empty()
+                    var html = ''
+                    console.log(results)
+                    
+                    for(var i=0;i<results.length;i++){
+                        html += '<li class="results-item">\
+                                <i class="results-icon">\
+                                <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>\
+                                </i>\
+                                <span class="border textoverflow">'+ results[i].attributes.name + ' - ' +
+                            results[i].attributes.singer +'</span></li>'
+                    }
+                    html = '<h3 class="border">搜索"'+ value +'"</h3><ul>' + html + '</ul>'
+                    $('.search-results').append(html)
+                }
+                
+               
             }, function (error) {
                 
             })

@@ -18,7 +18,8 @@ $(function(){
     $('.close').on('click',function(){
         $('#search').val('')
         $('.search-box').removeClass('active')       
-        
+        $('.search-list').show()
+        $('.search-results').empty()
     })
 
 })
