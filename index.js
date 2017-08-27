@@ -12,15 +12,24 @@ $(function(){
         
     })
 
+
     
-    $('#search').on('focus',function(){
-        $('#placeholder').text('')
+    
+    $('#search').on('input',function(){
+        
+        $('#search').val($(this).val()) 
+        $('.search-box').addClass('active')
+        if($('#search').val().trim() === ''){
+            
+            $('.search-box').removeClass('active')
+        }    
         
     })
-    $('#search').on('blur',function(){
-        if($(this).val() === ''){
-            $('#placeholder').text('搜索歌曲、歌手、专辑')
-        }
+
+    $('.close').on('click',function(){
+        console.log('hi')
+        $('#search').val(' ')
+        $('#placeholder').show()
     })
 
 })

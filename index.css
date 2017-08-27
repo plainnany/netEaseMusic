@@ -241,7 +241,7 @@ footer{
     padding-top: 53.3%;
     height: -1px;
     margin-top: 4px;
-    background: url(http://s3.music.126.net/m/s/img/recommand_bg_2x.png?d045fafc60e017b653f8065a87496922) no-repeat;
+    background: url(//s3.music.126.net/m/s/img/recommand_bg_2x.png?d045fafc60e017b653f8065a87496922) no-repeat;
     background-size: contain;
     text-align: center;
 }
@@ -393,6 +393,18 @@ footer > .footer-wrap > .copyright{
     background: #ebecec;
     border-radius: 30px;
 }
+.search > .search-box.active > label{
+    display: none;
+}
+.search > .search-box.active > .close{
+    display: block;
+}
+.search > .search-box span{
+    display: none;
+}
+.search > .search-box span.show{
+    display: block;
+}
 .search > .search-box > input{
     position: absolute;
     width: 80%;
@@ -416,6 +428,7 @@ footer > .footer-wrap > .copyright{
     height: 30px;
     line-height: 28px;
     text-align: center;
+    z-index: 3;
     
 }
 .close{
