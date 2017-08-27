@@ -45,21 +45,7 @@ $(function(){
             $('.hot-content > #loading').remove()
             var html = ''
             var num = 0
-            for(var i=0;i<3;i++){
-                html += '<a href='+ results[i].attributes.url +' class="hot-item">\
-                <div class="hot-item-num top-three">0'+ (i+1) +'</div>\
-                <div class="hot-item-content border">\
-                    <div class="hot-item-context">\
-                        <h3>'+ results[i].attributes.name +'<span>'+ results[i].attributes.nameinfo +'</span></h3>\
-                        <p class="textoverflow"><svg class="icon icon-sq"><use xlink:href="#icon-sq"></use></svg>'+ results[i].attributes.singer + ' - ' + 
-                        results[i].attributes.name +'</p>\
-                    </div>\
-                    <div class="hot-item-play">\
-                        <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>\
-                    </div></div></a>'
-            }
-
-            for(var i=3;i<results.length;i++){
+            for(var i=0;i<results.length;i++){
 
                 num = i >= 9 ? (i+1) : ('0' + (i + 1) )
 
@@ -73,9 +59,7 @@ $(function(){
                     </div>\
                     <div class="hot-item-play">\
                         <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>\
-                    </div></div></a>'
-
-                
+                    </div></div></a>'    
             }
             $('.hot-content').append(html)
         }, function (error) {
@@ -103,36 +87,48 @@ $(function(){
             alert('获取推荐失败')
         })
     }()
-})
 
-
-
-
-
-$('#search').on('input',function(){
-    
-    var value = $(this).val().trim()
-    if(value === ''){return}
-    var query = new AV.Query('Song')
-    query.contains('name',value)
-    query.find().then(function (results) {
-        $('.search-list ul').empty()
-        if(results.length === 0){
-            console.log('没有结果')
-        }else{
+    !function(){
+        $('#search').on('input',function(){
+            var value = $(this).val().trim()
             
-            var html = ''
-            for(var i=0;i<results.length;i++){
-                html += '<li>'+ results[i].attributes.name + '-' + results[i].attributes.singer
-                 +'</li>'
-            }
-            $('.search-list ul').append(html)
-        }
-        console.log(results)
-        var html = ''
+            $('.search-box').addClass('active')
+            if($(this).val() === ''){
+                
+                $('.search-box').removeClass('active')
+            } 
         
-    }, function (error) {
         
-    })
-    
+            
+            if(value === ''){return}
+            var query = new AV.Query('Playlist')
+            query.contains('name',value)
+            query.find().then(function (results) {
+                $('.search-list ul').empty()
+                if(results.length === 0){
+                    console.log('没有结果')
+                }else{
+                    
+                    var html = ''
+                    for(var i=0;i<results.length;i++){
+                        html += '<li>'+ results[i].attributes.name + '-' + results[i].attributes.singer
+                         +'</li>'
+                    }
+                    $('.search-list ul').append(html)
+                }
+                console.log(results)
+                var html = ''
+                
+            }, function (error) {
+                
+            })
+            
+        })
+    }()
 })
+
+
+
+
+
+

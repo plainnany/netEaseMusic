@@ -13,23 +13,12 @@ $(function(){
     })
 
 
-    
-    
-    $('#search').on('input',function(){
-        
-        $('#search').val($(this).val()) 
-        $('.search-box').addClass('active')
-        if($('#search').val().trim() === ''){
-            
-            $('.search-box').removeClass('active')
-        }    
-        
-    })
+
 
     $('.close').on('click',function(){
-        console.log('hi')
-        $('#search').val(' ')
-        $('#placeholder').show()
+        $('#search').val('')
+        $('.search-box').removeClass('active')       
+        
     })
 
 })

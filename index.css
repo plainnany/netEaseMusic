@@ -321,7 +321,9 @@ footer > .footer-wrap > .copyright{
     align-items: center;
     color: #999;
 }
-.hot-list > .hot-content .top-three{
+.hot-list > .hot-content .hot-item:nth-child(1) .hot-item-num,
+.hot-list > .hot-content .hot-item:nth-child(2) .hot-item-num,
+.hot-list > .hot-content .hot-item:nth-child(3) .hot-item-num{
     color: #df3436;
 }
 .hot-list > .hot-content .hot-item-content{
