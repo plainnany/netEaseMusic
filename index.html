@@ -29,16 +29,7 @@
             <div class="tab-content music show">
                 <h2 class="recommend-title">推荐歌单</h2>
                 <div class="recommend-songs">
-                        <div class="loading" id="loading"><img src="https://i.loli.net/2017/08/26/59a1475f22acb.gif" alt="加载中"></div>
-                    <!-- <a href="" class="">
-                        <div>
-                            <img src="//p1.music.126.net/MFf56dl-NrFJCEAPCrWwUA==/18578447976559047.webp?imageView&thumbnail=369x0&quality=75&tostatic=0&type=webp" alt="">
-                            <span class="earphone">28万</span>
-                        </div>
-                        <p>七夕快到了，单身狗有话要说……</p>
-                    </a> -->
-                    
-                    
+                    <div class="loading" id="loading"><img src="https://i.loli.net/2017/08/26/59a1475f22acb.gif" alt="加载中"></div>
                     
                 </div>
                 <h2 class="recommend-title">最新音乐</h2>
@@ -71,16 +62,23 @@
                     <div class="hot-view">
                         <p>查看完整榜单 ></p>
                     </div>
-                </div>
-                
-            
+                </div>           
             </div> 
             <div class="tab-content">
                 <form class="search border">
                     <div class="search-box">
-                        <i class="icon-search"></i>
+                        <i class="icon-search">
+                            <svg class="icon">
+                                <use xlink:href="#icon-search"></use>
+                            </svg>
+                        </i>
                         <input type="text" name="" value="" placeholder id="search">
                         <label for="" id="placeholder">搜索歌曲、歌手、专辑</label>
+                        <span class="close">
+                            <svg class="icon">
+                                <use xlink:href="#icon-close"></use>
+                            </svg>
+                        </span>
                     </div>
                     
                 </form>
@@ -103,6 +101,7 @@
         </div>
     </div>
     <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//at.alicdn.com/t/font_397548_zowj52cwgi418aor.js"></script>
     <script src="./vendors/av-min.js"></script>
     <script src="./vendors/av-data.js"></script>
     <script src="./index.js"></script>

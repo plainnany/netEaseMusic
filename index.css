@@ -217,31 +217,23 @@ input{
     font-size: 12px;
     color: #888;
 }
+.icon-sq{
+    vertical-align: text-top;
+    margin-right: 4px;
+    fill: red;
+}
+.icon-play{
+    fill: rgb(170,170,170);
+}
 .recommend-list > .lastest-list span{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 10px;
-    
+    font-size: 22px;
 }
 
-.icon-sq,.icon-play{
-    background-image: url(//s3.music.126.net/m/s/img/index_icon_3x.png?49a82fee3e0fc602e9c8b25df2bda159);
-    background-size: 166px 97px;
-}
-.icon-sq{
-    display: inline-block;
-    width: 12px;
-    height: 8px;
-    margin-right: 4px;
-    
-}
-.icon-play{
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    background-position: -24px 0;
-}
+
 
 /* music footer */
 footer{
@@ -374,6 +366,7 @@ footer > .footer-wrap > .copyright{
     justify-content: center;
     align-items: center;
     padding: 0 10px;
+    font-size: 22px;
 }
 .hot-list > .hot-view{
     height: 55px;
@@ -416,14 +409,26 @@ footer > .footer-wrap > .copyright{
     left: 30px;
     color: #c9c9c9;
 }
-.icon-search{
+.close,.icon-search{
     position: absolute;
-    top: 9px;
-    left: 8px;
-    display: block;
-    width: 13px;
-    height: 13px;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNiAyNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjYzljOWNhIiBkPSJNMjUuMTgxLDIzLjUzNWwtMS40MTQsMS40MTRsLTcuMzE1LTcuMzE0CgkJQzE0LjcwOSwxOS4xMDcsMTIuNDYsMjAsMTAsMjBDNC40NzcsMjAsMCwxNS41MjMsMCwxMEMwLDQuNDc3LDQuNDc3LDAsMTAsMGM1LjUyMywwLDEwLDQuNDc3LDEwLDEwYzAsMi4zNDItMC44MTEsNC40OS0yLjE2LDYuMTk1CgkJTDI1LjE4MSwyMy41MzV6IE0xMCwyYy00LjQxOCwwLTgsMy41ODItOCw4czMuNTgyLDgsOCw4YzQuNDE4LDAsOC0zLjU4Miw4LThTMTQuNDE4LDIsMTAsMnoiLz48L3N2Zz4=)
+    top: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    text-align: center;
+    
+}
+.close{
+    right: 0;
+    font-size: 16px;
+}
+.icon-search{
+    left: 0;
+    font-size: 18px;
+}
+.close .icon,.icon-search .icon{
+    vertical-align: middle;
+    fill: rgb(189,189,189);
 }
 .search-list{
     padding: 15px 10px 0 10px;

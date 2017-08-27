@@ -29,9 +29,9 @@ $(function(){
             for(var i=0;i<results.length;i++){
                 html += '<a href='+ results[i].attributes.url +' class="music-list border"><div class="music-list-cont">\
                 <h3>'+ results[i].attributes.name +'<small>'+ results[i].attributes.nameinfo +'</small></h3>\
-                <p class="textoverflow"><i class="icon-sq"></i>'+ results[i].attributes.singer + ' - ' + 
-                results[i].attributes.name 
-                +'</p></div><span><i class="icon-play"></i></span></a>'
+                <p class="textoverflow"><svg class="icon icon-sq"><use xlink:href="#icon-sq"></use></svg>'+ 
+                results[i].attributes.singer + ' - ' + results[i].attributes.name 
+                +'</p></div><span><svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg></span></a>'
             }
             $('.lastest-list').append(html)
         }, function (error) {
@@ -51,11 +51,11 @@ $(function(){
                 <div class="hot-item-content border">\
                     <div class="hot-item-context">\
                         <h3>'+ results[i].attributes.name +'<span>'+ results[i].attributes.nameinfo +'</span></h3>\
-                        <p class="textoverflow"><i class="icon-sq"></i>'+ results[i].attributes.singer + ' - ' + 
+                        <p class="textoverflow"><svg class="icon icon-sq"><use xlink:href="#icon-sq"></use></svg>'+ results[i].attributes.singer + ' - ' + 
                         results[i].attributes.name +'</p>\
                     </div>\
                     <div class="hot-item-play">\
-                        <i class="icon-play"></i>\
+                        <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>\
                     </div></div></a>'
             }
 
@@ -68,11 +68,11 @@ $(function(){
                 <div class="hot-item-content border">\
                     <div class="hot-item-context">\
                         <h3>'+ results[i].attributes.name +'<span>'+ results[i].attributes.nameinfo +'</span></h3>\
-                        <p class="textoverflow"><i class="icon-sq"></i>'+ results[i].attributes.singer + ' - ' + 
-                        results[i].attributes.name +'</p>\
+                        <p class="textoverflow"><svg class="icon icon-sq"><use xlink:href="#icon-sq"></use></svg>'+
+                        results[i].attributes.singer + ' - ' + results[i].attributes.name +'</p>\
                     </div>\
                     <div class="hot-item-play">\
-                        <i class="icon-play"></i>\
+                        <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>\
                     </div></div></a>'
 
                 
