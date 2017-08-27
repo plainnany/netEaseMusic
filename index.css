@@ -103,8 +103,11 @@ input{
 }
 
 /* tab-content */
-.tab-content{
-    
+.content > .tab-content{
+    display: none;
+}
+.content > .tab-content.show{
+    display: block;
 }
 .music{
     padding-top: 20px;
@@ -138,7 +141,7 @@ input{
     padding-bottom: 16px;
     
 }
-.music > .recommend-songs div{
+.music > .recommend-songs .recommend-img{
     position: relative;
     padding-bottom: 100%;
 }
@@ -153,7 +156,7 @@ input{
     background: linear-gradient(180deg,rgba(0,0,0,.6),transparent);
 
 }
-.music > .recommend-songs img{
+.music > .recommend-songs .recommend-img img{
     position: absolute;
     width: 100%;
     vertical-align: top;

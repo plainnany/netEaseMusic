@@ -6,11 +6,25 @@ AV.init({
     appKey: APP_KEY
 })
 
+// var Todo = AV.Object.extend('Recommendlist');
+// // 新建一个 Todo 对象
+// var todo = new Todo();
+
+// todo.save({
+//     url: '',
+//     playnum: '126.5',
+//     imgUrl: '//ov8ky0xr6.bkt.clouddn.com/1.jpg',
+//     info: '七夕快到了，单身狗有话要说……'
+// }).then(function (todo) {
+//   // 成功保存之后，执行其他逻辑.
+//   alert('成功')
+// });
+
 $(function(){
     !function(){
         var query = new AV.Query('Indexlist')
         query.find().then(function (results) {
-            $('#loading').remove()
+            $('.lastest-list > #loading').remove()
             var html = ''
             for(var i=0;i<results.length;i++){
                 html += '<a href='+ results[i].attributes.url +' class="music-list border"><div class="music-list-cont">\
@@ -28,7 +42,7 @@ $(function(){
     !function(){
         var query = new AV.Query('Hotlist')
         query.find().then(function (results) {
-            $('#loading').remove()
+            $('.hot-content > #loading').remove()
             var html = ''
             var num = 0
             for(var i=0;i<3;i++){
@@ -66,6 +80,27 @@ $(function(){
             $('.hot-content').append(html)
         }, function (error) {
             alert('获取歌曲失败')
+        })
+    }()
+
+    !function(){
+        var query = new AV.Query('Recommendlist')
+        query.find().then(function (results) {
+            $('#loading').remove()
+            console.log(results)
+            var html = ''
+            for(var i=0;i<results.length;i++){
+                html += '<a href='+ results[i].attributes.url +'>\
+                <div class="recommend-img">\
+                    <img src='+ results[i].attributes.imgUrl +' alt="">\
+                    <span class="earphone">'+ results[i].attributes.playnum +'万</span>\
+                </div>\
+                <p>'+ results[i].attributes.info +'</p></a>'
+            }
+            
+            $('.recommend-songs').append(html)
+        }, function (error) {
+            alert('获取推荐失败')
         })
     }()
 })
