@@ -23,10 +23,15 @@ $(function(){
         console.log('error')
     })
 
+    !function(){
+        var audio = document.createElement('audio')
+        audio.src = '//ov8ky0xr6.bkt.clouddn.com/%E6%9D%A5%E8%87%AA%E5%A4%A9%E5%A0%82%E7%9A%84%E9%AD%94%E9%AC%BC.mp3'
 
-    $('.playButton').on('click',function(){
-        $('.song-disc-wrap').addClass('active')
-    })
+        $('.playButton').on('click',function(){
+            $('.song-disc-wrap').addClass('active')
+            audio.play()
+        })
+    }()
     
     
 })

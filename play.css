@@ -196,12 +196,24 @@
 }
 
 .song-wrap > .song-info{
-    margin-top: 25px;
+   margin-top: 10px;
     padding: 0 35px;
     height: 123px;
     position: relative;
     text-align: center;
     color: #fefefe;
+}
+ @media screen and (min-width: 360px) {
+    .song-wrap > .song-info {
+        margin-top: 15px;
+    }
+
+}
+@media screen and (min-width: 414px) {
+    .song-wrap > .song-info {
+        margin-top: 25px;
+    }
+
 }
 .song-wrap > .song-info > h2{
     font-size: 15px;
@@ -241,6 +253,7 @@
     bottom: 20px;
     width: 100%;
     z-index: 15;
+    padding-top: 44px;
 }
 .song-wrap > .song-footer > .song-footer-wrap{
     display: flex;
