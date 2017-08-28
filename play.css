@@ -39,7 +39,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url(http://p3.music.126.net/MFxQSwXf3x5u-yOfKKycZg==/4437628929772450.jpg);
+    background-image: url("//music.163.com/api/img/blur/1364493930777368");
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: auto 100%;
@@ -119,7 +119,7 @@
     background-image: url(http://s3.music.126.net/m/s/img/disc-plus.png?b700b62e1971b351dcb8b8ce1c9ceea3);
     background-size: contain;
     background-repeat: no-repeat;
-    animation: circling 20s infinite linear;
+    /* animation: circling 20s infinite linear; */
 }
 .song-wrap .song-turn::after{
     
@@ -132,7 +132,18 @@
     background: url(//s3.music.126.net/m/s/img/disc_light-plus.png?4392c8c9a8a33d4b2b2c33d3995503c9);
     background-size: contain;
     background-repeat: no-repeat;
+    /* animation: circling 20s infinite linear; */
+}
+
+.song-disc-wrap{
+    position: relative;
+}
+.song-disc-wrap.active .song-turn::after,
+.song-disc-wrap.active .song-turn{
     animation: circling 20s infinite linear;
+}
+.song-disc-wrap.active .playButton{
+    display: none;
 }
 @media screen and (min-width: 360px){  
     .song-wrap  .song-turn{
@@ -150,6 +161,8 @@
 }
 .song-wrap .song-img{
     width: 150px;
+    position: relative;
+    
 }
 @media screen and (min-width: 360px){
     .song-wrap .song-img{
@@ -163,6 +176,21 @@
     }
 
 }
+
+.playButton{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+}
+.song-wrap .playButton svg{
+    fill: gainsboro;
+}
 .song-wrap .song-img img{
     border-radius: 50%;
 }
@@ -170,7 +198,41 @@
 .song-wrap > .song-info{
     margin-top: 25px;
     padding: 0 35px;
-    height: 121px;
+    height: 123px;
+    position: relative;
+    text-align: center;
+    color: #fefefe;
+}
+.song-wrap > .song-info > h2{
+    font-size: 15px;
+    line-height: 1.1;
+}
+@media screen and (min-width:375px){
+    .song-wrap > .song-info > h2{
+        font-size: 18px;
+    }
+}
+.song-wrap > .song-info .song-scroll{
+    height: 81px;
+    font-size: 13px;
+    line-height: 1.5;
+    /* border: 1px solid red; */
+    margin-top: 8px;
+    overflow: hidden;
+}
+@media screen and (min-width:375px){
+    .song-wrap > .song-info .song-scroll{
+        height: 96px;
+        font-size: 16px;
+        
+    }
+}
+.song-wrap > .song-info .song-lyr{
+    
+}
+.song-wrap > .song-info  p{
+    color: hsla(0,0%,100%,.6);
+    padding: 4px 0;
 }
 
 .song-wrap > .song-footer{

@@ -22,4 +22,14 @@ $(function(){
         $('.search-results').empty()
     })
 
+    $('.search-list > ul').on('click','li',function(){
+        $('.search-list').hide ()
+        $('.search-box').addClass('active')  
+        $('#search').val($(this).text())
+        $('.search-results').empty()
+        var html = ''
+        html = '<h3 class="border">搜索"'+ $('#search').val().trim() +'"</h3>'
+        $('.search-results').append(html)
+    })
+
 })
