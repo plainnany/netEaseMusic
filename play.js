@@ -1,40 +1,70 @@
+var APP_ID = 'MTtc1w5rvxtBQtszNzzGxaBi-gzGzoHsz'
+var APP_KEY = 'X3lLWjfgi4fJxMNhhYoR4Ewc'
+
+AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+})
 $(function(){
     
-    $.get('lyric.json').then(function(data){
-        var audio = document.createElement('audio')
-        audio.src = 'http://ov8ky0xr6.bkt.clouddn.com/%E6%9D%A5%E8%87%AA%E5%A4%A9%E5%A0%82%E7%9A%84%E9%AD%94%E9%AC%BC.mp3'
+
+    var query = new AV.Query('Indexlist')
+    query.find().then(function (results) {
+        var idArray = location.search.split('=')
+        var id = idArray[1] 
         
-        var arraylyric = parseLyric(data)
+        var audio = document.createElement('audio')
+        
+        //
+        
+        for(var i=0;i<results.length;i++){
+            
+            
+            if(results[i].id === id){
+                
+                
+                
+                $('.song-info > h2').text(results[i].attributes.name + ' - ' + results[i].attributes.singer)
+                
+                $('.song-img > img').attr('src',results[i].attributes.imgUrl)
+                $('.song-wrap > .song-bg').css({
+                    'background-image': 'url(' + results[i].attributes.imgUrl + ')'
+                })
+                audio.src = results[i].attributes.url
+                
+                var data = JSON.parse(results[i].attributes.lyric)
+            }
+        }
+        
         $('.playButton').on('click',function(){
             audio.play()
             $('.song-disc-wrap').addClass('active')
         })
+        var arraylyric = parseLyric(data)
         setInterval(function(){
             var currentTime = audio.currentTime
             var line
-            //$('.playButton').on('click',function(){
-                //$('.song-disc-wrap').addClass('active')
-                for(var i=0;i<arraylyric.length;i++){
-                    if(i === arraylyric.length-1){
-                        console.log(arraylyric[i].lyric)
-                        return 
-                    }else if( currentTime >= arraylyric[i].time && currentTime < arraylyric[i+1].time){
-                        //console.log(arraylyric[i].lyric)
-                        line = $('.song-lyr p').eq(i)
-                        break
-                    }
-    
-                }
-                if(line){
-                    if(line.text()===''){return}
-                    let top = line.offset().top		
-                    line.addClass('active').siblings().removeClass('active')
-                    let linesTop = $('.song-lyr').offset().top
-                    let delta = top - linesTop
+            for(var i=0;i<arraylyric.length;i++){
+                if(i === arraylyric.length-1){
+                    //console.log(arraylyric[i].lyric)
+                    return 
+                }else if( currentTime >= arraylyric[i].time && currentTime < arraylyric[i+1].time){
                     
-                    $('.song-lyr').css('transform', 'translateY(-'+ delta+'px)')
-                    
+                    line = $('.song-lyr p').eq(i)
+                    break
                 }
+
+            }
+            if(line){
+                if(line.text()===''){return}
+                let top = line.offset().top		
+                line.addClass('active').siblings().removeClass('active')
+                let linesTop = $('.song-lyr').offset().top
+                let delta = top - linesTop
+                
+                $('.song-lyr').css('transform', 'translateY(-'+ delta+'px)')
+                
+            }
                 
             //})
         },20)
@@ -47,6 +77,7 @@ $(function(){
 
     function parseLyric(data){
         var lyric = data.lyric
+        
         var array = lyric.split('\n')
         var regex = /^\[(.*)\](.*)$/
         var arraylyric = []
