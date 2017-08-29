@@ -89,52 +89,57 @@ $(function(){
     }()
 
     !function(){
-        $('#search').on('input',function(){
-            var value = $(this).val().trim()
+        var timer = null
+        $('#search').on('input',function(e){
+            var value = $(e.currentTarget).val().trim()
             
             $('.search-box').addClass('active')
-            if($(this).val() === ''){
+            if($(e.currentTarget).val() === ''){
                 
                 $('.search-box').removeClass('active')
 
                 $('.search-results').empty()
                 $('.search-list').show()
             } 
-        
-        
-            
             if(value === ''){return}
             var query = new AV.Query('Hotlist')
             query.contains('name',value)
-            query.find().then(function (results) {
-                $('.search-list').hide()
+
+            if(timer){clearTimeout(timer)}
+            timer = setTimeout(function(){
+                timer = null
                 
-                if(results.length === 0){
-                    $('.search-results').empty()
-                    var html = ''
-                    html = '<h3 class="border">搜索"'+ value +'"</h3>'
-                    $('.search-results').append(html)
-                }else{
-                    $('.search-results').empty()
-                    var html = ''
-                    console.log(results)
+                query.find().then(function (results) {
+                    $('.search-list').hide()
                     
-                    for(var i=0;i<results.length;i++){
-                        html += '<li class="results-item">\
-                                <i class="results-icon">\
-                                <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>\
-                                </i>\
-                                <span class="border textoverflow">'+ results[i].attributes.name + ' - ' +
-                            results[i].attributes.singer +'</span></li>'
+                    if(results.length === 0){
+                        $('.search-results').empty()
+                        var html = ''
+                        html = '<h3 class="border">搜索"'+ value +'"</h3>'
+                        $('.search-results').append(html)
+                    }else{
+                        $('.search-results').empty()
+                        var html = ''
+                        
+                        
+                        for(var i=0;i<results.length;i++){
+                            html += '<li class="results-item">\
+                                    <i class="results-icon">\
+                                    <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>\
+                                    </i>\
+                                    <span class="border textoverflow">'+ results[i].attributes.name + ' - ' +
+                                results[i].attributes.singer +'</span></li>'
+                        }
+                        html = '<h3 class="border">搜索"'+ value +'"</h3><ul>' + html + '</ul>'
+                        $('.search-results').append(html)
                     }
-                    html = '<h3 class="border">搜索"'+ value +'"</h3><ul>' + html + '</ul>'
-                    $('.search-results').append(html)
-                }
-                
-               
-            }, function (error) {
-                
-            })
+                    
+                   
+                }, function (error) {
+                    
+                })
+            },500)
+            
             
         })
     }()
