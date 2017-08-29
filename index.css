@@ -450,12 +450,15 @@ footer > .footer-wrap > .copyright{
 .search-list{
     padding: 15px 10px 0 10px;
 }
+.search-list > ul{
+    margin: 10px 0;
+}
 .search-list > h3{
     font-size: 12px;
     line-height: 12px;
     color: #666;
 }
-.search-list > ul{
+.search-list > div{
     margin: 10px 0;
 }
 .search-list .search-item{

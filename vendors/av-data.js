@@ -85,7 +85,7 @@ $(function(){
             
             var html = ''
             for(var i=0;i<results.length;i++){
-                html += '<a href="./play?id='+ results[i].id +'">\
+                html += '<a href="./playlist.html?id='+ (i+1) +'">\
                             <div class="recommend-img">\
                                 <img src='+ results[i].attributes.imgUrl +' alt="">\
                                 <span class="earphone">'+ results[i].attributes.playnum +'万</span>\
@@ -113,7 +113,7 @@ $(function(){
                 $('.search-list').show()
             } 
             if(value === ''){return}
-            var query = new AV.Query('Hotlist')
+            var query = new AV.Query('Indexlist')
             query.contains('name',value)
 
             if(timer){clearTimeout(timer)}
@@ -131,17 +131,17 @@ $(function(){
                     }else{
                         $('.search-results').empty()
                         var html = ''
-                        
+                        console.log(results)
                         
                         for(var i=0;i<results.length;i++){
-                            html += '<li class="results-item">\
+                            html += '<a class="results-item" href="./play.html?id='+ results[i].id +'">\
                                     <i class="results-icon">\
                                     <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>\
                                     </i>\
                                     <span class="border textoverflow">'+ results[i].attributes.name + ' - ' +
-                                results[i].attributes.singer +'</span></li>'
+                                results[i].attributes.singer +'</span></a>'
                         }
-                        html = '<h3 class="border">搜索"'+ value +'"</h3><ul>' + html + '</ul>'
+                        html = '<h3 class="border">搜索"'+ value +'"</h3><div>' + html + '</div>'
                         $('.search-results').append(html)
                     }
                     

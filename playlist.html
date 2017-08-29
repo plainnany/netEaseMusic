@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="playlist.css">
+    
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
             <div class="playlist-bg"></div>
             <div class="playlist-header-wrap">
                 <div class="playlist-header-img">
-                    <img src="//p1.music.126.net/KWn-ut_0p1M22aXMC_Rx9Q==/109951163004878113.webp?imageView&thumbnail=252x0&quality=75&tostatic=0&type=webp" alt="">
+                    <img src="" alt="">
                     <span class="icon-song">歌单</span>
                     <i class="earphone">73.5万</i>
                 </div>
@@ -22,7 +23,7 @@
                     <h2 class="textoverflow2">G.E.M.邓紫棋精选集【珍藏】</h2>
                     <a href="" class="user">
                         <img src="//p1.music.126.net/QYqqGUi2t7TtTMwJ22cqfA==/109951162962529327.webp?imageView&thumbnail=60x0&quality=75&tostatic=0&type=webp" alt="">
-                        -星晴
+                        -nany
                     </a>
                 </div>
             </div>
@@ -35,17 +36,18 @@
                 <em class="border">90后</em>
             </div>
             <div class="play-desc">
-                简介：G.E.M.鄧紫棋，香港创作型女歌手。2008年7月10日以16岁之龄出道她的《G.E.M.X.X.X.live世界巡回演唱会》于2015年
+                <!-- 简介：G.E.M.鄧紫棋，香港创作型女歌手。2008年7月10日以16岁之龄出道她的《G.E.M.X.X.X.live世界巡回演唱会》于2015年
                 十一月完成73场，打破之前华语女歌手单轮巡演的记录。更于同年成为首位在瑞士阿尔卑斯山脉少女峰举办音乐会的中国音乐人。
                 2016年入选《福布斯》全球三十位最有潜力音乐人。 2017.4.1日 她的巡演 queen of hearts 在广州再度起航 
-                这是她第三个巡演……
+                这是她第三个巡演…… -->
             </div>
             <span class="arrow-up"></span>
         </section>
         <section class="playlist-list">
             <h3>歌曲列表</h3>
             <div class="songs">
-                <a href="" class="songs-item">
+                <div class="loading" id="loading"><img src="https://i.loli.net/2017/08/26/59a1475f22acb.gif" alt="加载中"></div>
+                <!-- <a href="" class="songs-item">
                     <div class="songs-num">1</div>
                     <div class="songs-content border">
                         <div class="songs-content-wrap">
@@ -61,9 +63,16 @@
                         </div>
                     </div>
                     
-                </a>
+                </a> -->
             </div>
         </section>
+        <footer>
+            <span><svg class="icon"><use xlink:href="#icon-play"></use></svg>收藏歌单</span>
+        </footer>
     </div>
+    <script src="./vendors/av-min.js"></script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//at.alicdn.com/t/font_397548_59yf9em2yl7syvi.js"></script>
+    <script src="./playlist.js"></script>
 </body>
 </html>
