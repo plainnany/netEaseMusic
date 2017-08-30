@@ -12,7 +12,7 @@ $(function(){
     query.find().then(function (results) {
         $('.songs > #loading').remove()
         var html = ''
-        for(var i=0;i<6;i++){
+        for(var i=0;i<8;i++){
             html += '<a href="./play.html?id='+ results[i].id +'" class="songs-item">\
                         <div class="songs-num">'+ (i+1) +'</div>\
                             <div class="songs-content border">\

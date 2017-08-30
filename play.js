@@ -5,45 +5,47 @@ AV.init({
     appId: APP_ID,
     appKey: APP_KEY
 })
-$(function(){
-    
+var audio = document.createElement('audio')
 
+$('.playButton').on('click',function(e){
+    
+    $('.song-disc-wrap').addClass('active')
+    audio.play()
+    e.preventDefault()
+    
+})
+/*
+console.log(1)
+*/
     var query = new AV.Query('Indexlist')
     query.find().then(function (results) {
         var idArray = location.search.split('=')
         var id = idArray[1] 
         
-        var audio = document.createElement('audio')
-        
-        //
-        
         for(var i=0;i<results.length;i++){
-            
-            
             if(results[i].id === id){
-                
-                
-                
+                audio.src = results[i].attributes.url
                 $('.song-info > h2').text(results[i].attributes.name + ' - ' + results[i].attributes.singer)
                 
                 $('.song-img > img').attr('src',results[i].attributes.imgUrl)
                 $('.song-wrap > .song-bg').css({
                     'background-image': 'url(' + results[i].attributes.imgUrl + ')'
                 })
-                audio.src = results[i].attributes.url
+                
                 
                 var data = JSON.parse(results[i].attributes.lyric)
             }
         }
         
-        $('.playButton').on('click',function(){
-            audio.play()
-            $('.song-disc-wrap').addClass('active')
-        })
+        
         var arraylyric = parseLyric(data)
+        
         setInterval(function(){
+            
             var currentTime = audio.currentTime
+            
             var line
+            
             for(var i=0;i<arraylyric.length;i++){
                 if(i === arraylyric.length-1){
                     //console.log(arraylyric[i].lyric)
@@ -54,26 +56,27 @@ $(function(){
                     break
                 }
 
-            }
+            } 
+            
             if(line){
                 if(line.text()===''){return}
-                let top = line.offset().top		
+                
+                var top = line.offset().top		
+                
                 line.addClass('active').siblings().removeClass('active')
-                let linesTop = $('.song-lyr').offset().top
-                let delta = top - linesTop
+                var linesTop = $('.song-lyr').offset().top
+                var delta = top - linesTop
                 
                 $('.song-lyr').css('transform', 'translateY(-'+ delta+'px)')
                 
-            }
                 
-            //})
-        },20)
+            } 
+        },20) 
         
-
-
     },function(){
         console.log('error')
     })
+
 
     function parseLyric(data){
         var lyric = data.lyric
@@ -113,21 +116,3 @@ $(function(){
         return arraylyric
     }
 
-    // !function(){
-    //     var audio = document.createElement('audio')
-    //     audio.src = '//ov8ky0xr6.bkt.clouddn.com/%E6%9D%A5%E8%87%AA%E5%A4%A9%E5%A0%82%E7%9A%84%E9%AD%94%E9%AC%BC.mp3'
-
-    //     $('.playButton').on('click',function(){
-    //         $('.song-disc-wrap').addClass('active')
-            
-    //         audio.play()
-
-    //         setInterval(function(){
-    //             console.log(audio.currentTime)
-    //         },1000)
-            
-    //     })
-    // }()
-    
-    
-})
