@@ -6,13 +6,17 @@ AV.init({
     appKey: APP_KEY
 })
 var audio = document.createElement('audio')
-
+var onoff = true
 $('.playButton').on('click',function(e){
-    
-    $('.song-disc-wrap').addClass('active')
-    audio.play()
+    if(onoff){
+        $('.song-disc-wrap').addClass('active')
+        audio.play()
+    }else{
+        $('.song-disc-wrap').removeClass('active')
+        audio.pause()
+    }
     e.preventDefault()
-    
+    onoff = !onoff
 })
 /*
 console.log(1)
@@ -31,8 +35,6 @@ console.log(1)
                 $('.song-wrap > .song-bg').css({
                     'background-image': 'url(' + results[i].attributes.imgUrl + ')'
                 })
-                
-                
                 var data = JSON.parse(results[i].attributes.lyric)
             }
         }

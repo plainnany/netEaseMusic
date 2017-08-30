@@ -75,16 +75,18 @@
     }
 }
 .song-wrap > .song-disc::after{
+    content: " ";
     width: 84px;
     height: 122px;
     top: 0;
     left: 50%;
-    transform: translateX(-20%);
-    content: " ";
     position: absolute;
     background-image: url(//s3.music.126.net/m/s/img/needle.png?702cf6d95f29e2e594f53a3caab50e12);
     background-size: contain;
     background-repeat: no-repeat;
+    transform: translateX(-15.6%);
+    transform-origin: top left;
+    transition: .5s;
 
 }
 
@@ -121,7 +123,8 @@
     background-image: url(http://s3.music.126.net/m/s/img/disc-plus.png?b700b62e1971b351dcb8b8ce1c9ceea3);
     background-size: contain;
     background-repeat: no-repeat;
-    /* animation: circling 20s infinite linear; */
+    animation: circling 20s infinite linear;
+    animation-play-state: paused;
     
 }
 .song-wrap .song-turn::after{
@@ -135,7 +138,8 @@
     background: url(//s3.music.126.net/m/s/img/disc_light-plus.png?4392c8c9a8a33d4b2b2c33d3995503c9);
     background-size: contain;
     background-repeat: no-repeat;
-    /* animation: circling 20s infinite linear; */
+    animation: circling 20s infinite linear;
+    animation-play-state: paused;
 }
 
 .song-disc-wrap{
@@ -143,7 +147,7 @@
 }
 .song-disc-wrap.active .song-turn::after,
 .song-disc-wrap.active .song-turn{
-    animation: circling 20s infinite linear;
+    animation-play-state: running;
 }
 
 @media screen and (min-width: 360px){  
@@ -190,12 +194,23 @@
     align-items: center;
     font-size: 65px;
 }
-.song-disc-wrap.active .playButton{
-    /* display: none; */
-    opacity: 0;
+#play{
+    display: block;
 }
+#stop{
+    display: none;
+}
+.song-disc-wrap.active #play{
+    /* display: none; */
+    display: none;
+}
+.song-disc-wrap.active #stop{
+    /* display: none; */
+    display: block;
+}
+
 .song-wrap .playButton svg{
-    fill: gainsboro;
+    fill: #fff;
 }
 .song-wrap .song-img img{
     border-radius: 50%;
@@ -237,7 +252,6 @@
     height: 63px;
     font-size: 13px;
     line-height: 1.5;
-    /* border: 1px solid red; */
     margin-top: 8px;
     overflow: hidden;
 }
