@@ -11,10 +11,6 @@ $(function(){
         $('.tab-content').eq(index).addClass('show')
         
     })
-
-
-
-
     $('.close').on('click',function(){
         $('#search').val('')
         $('.search-box').removeClass('active')       
@@ -22,7 +18,8 @@ $(function(){
         $('.search-results').empty()
     })
 
-    $('.search-list > ul').on('click','li',function(){
+    $('.search-list > ul').on('click','li',function(e){
+        e.preventDefault()
         $('.search-list').hide ()
         $('.search-box').addClass('active')  
         $('#search').val($(this).text())
@@ -31,7 +28,5 @@ $(function(){
         html = '<h3 class="border">搜索"'+ $('#search').val().trim() +'"</h3>'
         $('.search-results').append(html)
     })
-
-    
 
 })
