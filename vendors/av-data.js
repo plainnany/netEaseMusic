@@ -126,7 +126,8 @@ $(function(){
                     if(results.length === 0){
                         $('.search-results').empty()
                         var html = ''
-                        html = '<h3 class="border">搜索"'+ value +'"</h3>'
+                        html = '<h3 class="border">搜索"'+ value +'"</h3><div>\
+                        <a class="results-item" href=>暂无搜索结果</a></div>'
                         $('.search-results').append(html)
                     }else{
                         $('.search-results').empty()
@@ -144,7 +145,6 @@ $(function(){
                         html = '<h3 class="border">搜索"'+ value +'"</h3><div>' + html + '</div>'
                         $('.search-results').append(html)
                     }
-                    
                    
                 }, function (error) {
                     
