@@ -1,0 +1,30 @@
+{
+  "name": "neteasemusic",
+  "version": "1.0.0",
+  "description": "[预览](https://plainnany.github.io/netEaseMusic/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plainnany/netEaseMusic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plainnany/netEaseMusic/issues"
+  },
+  "homepage": "https://github.com/plainnany/netEaseMusic#readme",
+  "keywords": [],
+  "dependencies": {
+    "autoprefixer": "^7.1.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.3",
+    "cssnano": "^3.10.0",
+    "node-static": "^0.7.9",
+    "postcss": "^6.0.10",
+    "postcss-cli": "^4.1.0"
+  }
+}
