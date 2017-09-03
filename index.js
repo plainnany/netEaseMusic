@@ -16,5 +16,7 @@ $(function(){
         $('.search-list').show()
         $('.search-results').empty()
     })
-
+    $('.footer-wrap,.download,.hot-view').on('click',function(){
+        window.location.href = './download.html'
+    })
 })
