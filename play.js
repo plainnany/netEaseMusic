@@ -108,13 +108,14 @@ console.log(1)
             var seconds = +matches[1]
             
             var time = minutes*60 + seconds
-            //console.log(matches)
+            
             arraylyric.push({
                 time: time,
                 lyric: object.words
             })       
             
         })
+        
         return arraylyric
     }
 
