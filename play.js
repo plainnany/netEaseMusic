@@ -20,7 +20,8 @@ var songModule = {
 }
 var songView = {
     showLyrics: showLyrics,
-    showDetails: showDetails
+    showDetails: showDetails,
+    parseLyric: parseLyric
 
 }
 
@@ -65,7 +66,7 @@ songController.playTab()
 
 
 function showLyrics(data){
-    var arraylyric = parseLyric(data)
+    var arraylyric = this.parseLyric(data)
     setInterval(function(){
         var currentTime = audio.currentTime
         var line
