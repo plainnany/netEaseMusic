@@ -9,46 +9,61 @@ var audio = document.createElement('audio')
 var onoff = true
 
 
-
-function playTab(){
-    $('.playButton').on('click',function(e){
-        if(onoff){
-            $('.song-disc-wrap').addClass('active')
-            audio.play()
-        }else{
-            $('.song-disc-wrap').removeClass('active')
-            audio.pause()
-        }
-        e.preventDefault()
-        onoff = !onoff
-    })
-}
-playTab()
-
-function getSongs(){
-    var query = new AV.Query('Indexlist')
-    return query.find()
-}
-function loadSongs(){
-    getSongs().then(fillSongs,function(){
-        console.log('error')
-    })
-}
-loadSongs()
-
-function fillSongs(results){
-    var idArray = location.search.split('=')
-    var id = idArray[1] 
-    for(var i=0;i<results.length;i++){
-        if(results[i].id === id){
-            showDetails(results[i])
-            var data = JSON.parse(results[i].attributes.lyric)
-        }
+var songModule = {
+    results: null,
+    getAll: function(){
+        var query = new AV.Query('Indexlist')
+        return query.find().then(function(results){
+            this.results = results
+        }.bind(this))
     }
-    
-    showLyrics(data)
-   
 }
+var songView = {
+    showLyrics: showLyrics,
+    showDetails: showDetails
+
+}
+
+var songController= {
+    module: songModule,
+    view: songView,
+    init: function(){
+        this.module.getAll().then(function(){
+            this.render()
+        }.bind(this))
+    },
+    render: function(){
+        var idArray = location.search.split('=')
+        var id = idArray[1] 
+        var results = songModule.results
+        for(var i=0;i<results.length;i++){
+            if(results[i].id === id){
+                this.view.showDetails(results[i])
+                var data = JSON.parse(results[i].attributes.lyric)
+            }
+        }
+        this.view.showLyrics(data)
+    },
+    playTab: function(){
+        $('.playButton').on('click',function(e){
+            if(onoff){
+                $('.song-disc-wrap').addClass('active')
+                audio.play()
+            }else{
+                $('.song-disc-wrap').removeClass('active')
+                audio.pause()
+            }
+            e.preventDefault()
+            onoff = !onoff
+        })
+    }
+}
+songController.init()
+
+songController.playTab()
+
+
+
 function showLyrics(data){
     var arraylyric = parseLyric(data)
     setInterval(function(){
