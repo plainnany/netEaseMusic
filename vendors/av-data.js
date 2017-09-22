@@ -93,8 +93,14 @@ $(function(){
                 $('.search-list').show()
             } 
             if(value === ''){return}
-            var query = new AV.Query('Indexlist')
-            query.contains('name',value)
+
+            var queryName = new AV.Query('Indexlist')
+            queryName.contains('name',value)
+            var querySinger = new AV.Query('Indexlist')
+            querySinger.contains('singer',value)
+            
+            var query = AV.Query.or(queryName,querySinger)
+
 
             if(timer){clearTimeout(timer)}
             timer = setTimeout(function(){
@@ -131,7 +137,7 @@ $(function(){
             
         })
     }()
-
+    
     !function(){
         $('.search-list > ul').on('click','li',function(e){
             e.preventDefault()
@@ -140,9 +146,14 @@ $(function(){
             $('#search').val($(this).text())
             $('.search-results').empty()
             var value = $(this).text()
-            var query = new AV.Query('Indexlist')
-            query.contains('name',value)
-    
+
+            var queryName = new AV.Query('Indexlist')
+            queryName.contains('name',value)
+            var querySinger = new AV.Query('Indexlist')
+            querySinger.contains('singer',value)
+            
+            var query = AV.Query.or(queryName,querySinger)
+            
             query.find().then(function (results) {
                 var html = ''
                 if(results.length === 0){
